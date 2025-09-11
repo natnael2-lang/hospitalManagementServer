@@ -26,7 +26,7 @@ db();
 app.use(cors({
     origin: [
     
-        'https://hospital-management-client-qgn9.vercel.app' // Allow Vercel URL
+        'https://hospital-management-client-nine.vercel.app'
     ],
     credentials: true,
 }));
