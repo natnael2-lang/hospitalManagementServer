@@ -18,7 +18,7 @@ const authMiddleware = (req, res, next) => {
     }
 };
 
-const verifyToken=()=>{
+const verifyToken=(req,res)=>{
      const token = req.cookies.token;
      if (!token) {
          return res.status(400).json({redirect:"/login"});
