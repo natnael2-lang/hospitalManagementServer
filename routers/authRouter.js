@@ -1,14 +1,15 @@
 const express = require('express');
-const router = express.Router(); // Use express.Router() to create a router instance
-const { login,loginOnLoad,logout } = require("../controllers/auth/auth");
-// const authMiddleware = require('../middlewares/authMiddleware'); // Uncomment if needed
+const router = express.Router(); 
+const { login,logout } = require("../controllers/auth/auth");
+const{verifyToken}=require("../middlewares/authMiddleware")
 
-// Define the patient registration route
+
+
 router.route('/login')
     .post(login);
-router.route('/loginOnLoad')
-      .get(loginOnLoad)
 router.route('/logout')
       .get(logout)
+router.route('/verifyToken')
+      .get(verifyToken)
 
-module.exports = router; // Correctly export the router
+module.exports = router;
