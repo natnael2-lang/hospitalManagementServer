@@ -24,10 +24,7 @@ db();
 
 // CORS configuration
 app.use(cors({
-    origin: [
-        'http://localhost:3000', // For local development
-        'https://hospital-management-client-qgn9.vercel.app' // Allow Vercel URL
-    ],
+    origin: 'https://hospital-management-client-nine.vercel.app',
     credentials: true,
 }));
 
