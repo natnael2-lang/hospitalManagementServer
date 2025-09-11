@@ -46,6 +46,7 @@ const login = async (req, res) => {
             secure:true, 
             maxAge: 3600000,
             sameSite: 'Lax',
+            path: '/'
         });
 
         return res.status(200).json({ redirect: `/${role}` }); 
