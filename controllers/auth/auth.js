@@ -43,7 +43,7 @@ const login = async (req, res) => {
         console.log("role",role,"token",newToken)
         res.cookie('token', newToken, {
             httpOnly: true,
-            secure:false, 
+            secure:true, 
             maxAge: 3600000,
             sameSite: 'Lax',
         });
