@@ -75,6 +75,8 @@ const logout = (req, res) => {
     res.clearCookie('token', {
         httpOnly: true,
         secure: true,
+        sameSite: 'None',
+        path: '/'
     });
     return res.status(200).json({ redirect: "/" });
 };
