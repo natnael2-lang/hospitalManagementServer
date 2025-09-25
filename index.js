@@ -24,7 +24,7 @@ db();
 
 
 app.use(cors({
-    origin: 'https://hospital-management-client-nine.vercel.app',
+    origin: 'https://hospital-management-client-delta.vercel.app',
     credentials: true,
 }));
 
