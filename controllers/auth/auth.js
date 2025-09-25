@@ -46,7 +46,7 @@ const login = async (req, res) => {
             secure:true, 
             maxAge: 3600000,
             sameSite: 'None',
-            path: '/'
+             path: '/'
         });
 
         return res.status(200).json({ redirect: `/${role}` }); 
@@ -79,4 +79,3 @@ const logout = (req, res) => {
     return res.status(200).json({ redirect: "/" });
 };
 module.exports = { login, logout };
-
