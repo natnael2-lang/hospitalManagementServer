@@ -1,11 +1,10 @@
-import LabResult from './labResult';
-import Priscription from './prescription';
+const LabResult= ('./labResult');
+const Priscription= ('./prescription') ;
 const mongoose = require('mongoose');
 const medicalHistorySchema = new mongoose.Schema({
-    doctorId:{type:Number,required:true},
-    patientId: { type:Number, required: true },
-    prescription:{ type: mongoose.Schema.Types.ObjectId, ref: 'Priscription', required: true },
-    resultId:{ type: mongoose.Schema.Types.ObjectId, ref: 'LabResult', required: true },
+    patientId: { type:String, required: true },
+    prescriptionId:{ type: mongoose.Schema.Types.ObjectId, ref: 'Priscription', required: true },
+    labResultId:{ type: mongoose.Schema.Types.ObjectId, ref: 'LabResult', required: true },
     
 });
 

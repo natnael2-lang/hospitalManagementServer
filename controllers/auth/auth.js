@@ -10,9 +10,11 @@ const login = async (req, res) => {
     try {
         let role;
 
+
         
 
         const { username, password } = req.body;
+        console.log("username ",username)
         const patientRegex = /^PT\d+$/; 
         const doctorRegex = /^DR\d+$/;
 
@@ -26,6 +28,7 @@ const login = async (req, res) => {
             role = 'patient'; 
         } else if (doctorRegex.test(username)) {
             user = await Doctor.findOne({ employeeId: username });
+            console.log("doctor ",user)
             if (!user) {
                 return res.status(404).send("Doctor not found");
             }
@@ -40,12 +43,12 @@ const login = async (req, res) => {
 
         const tokenPayload = { username, role };
         const newToken = jwt.sign(tokenPayload, process.env.JWT_SECRET, { expiresIn: '1h' });
-        console.log("role",role,"token",newToken)
+        console.log("role",role,"token",newToken,"username",username)
         res.cookie('token', newToken, {
             httpOnly: true,
-            secure:true, 
+            secure:false, 
             maxAge: 3600000,
-            sameSite: 'None',
+            sameSite: 'Lax',
              path: '/'
         });
 
@@ -74,8 +77,8 @@ const loginOnLoad = (req, res) => {
 const logout = (req, res) => {
     res.clearCookie('token', {
         httpOnly: true,
-        secure: true,
-        sameSite: 'None',
+        secure: false,
+        sameSite: 'Lax',
         path: '/'
     });
     return res.status(200).json({ redirect: "/" });

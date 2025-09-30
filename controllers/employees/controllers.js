@@ -1,5 +1,5 @@
 const Doctor=require("../../models/employee");
- let employeeId=1000
+ let employeeId=999
 const employeeRegitration=async (req,res)=>{
    
 
