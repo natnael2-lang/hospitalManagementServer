@@ -2,7 +2,7 @@ const Doctor = require('../../models/employee.js');
 const { Patient } = require('../../models/patient.js');
 const jwt = require('jsonwebtoken');
 
-const bcrypt = require('bcrypt');
+
 
 const login = async (req, res) => {
 
@@ -46,7 +46,7 @@ const login = async (req, res) => {
         console.log("role",role,"token",newToken,"username",username)
         res.cookie('token', newToken, {
             httpOnly: true,
-            secure:true, 
+            secure:false, 
             maxAge: 3600000,
             sameSite: 'Lax',
              path: '/'
@@ -77,7 +77,7 @@ const loginOnLoad = (req, res) => {
 const logout = (req, res) => {
     res.clearCookie('token', {
         httpOnly: true,
-        secure:true,
+        secure:false,
         sameSite: 'Lax',
         path: '/'
     });
