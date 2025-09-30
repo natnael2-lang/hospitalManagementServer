@@ -27,7 +27,7 @@ const verifyToken=(req,res)=>{
 
           const decoded = jwt.verify(token, process.env.JWT_SECRET);
          const role = decoded.role; 
-         return res.status(302).json({redirect:`/${role}`})
+         return res.status(200).json({redirect:`/${role}`})
          
         
 }
