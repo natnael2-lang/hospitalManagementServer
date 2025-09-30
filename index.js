@@ -25,7 +25,7 @@ const db = async () => {
 db();
 
 app.use(cors({
-    origin: 'https://hospitalmanagementserver-nqol.onrender.com',
+    origin: 'https://hospital-management-client-qjxc.vercel.app',
     credentials: true,
 }));
 
